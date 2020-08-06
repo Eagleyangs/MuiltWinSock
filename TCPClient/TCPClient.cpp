@@ -40,7 +40,7 @@ int main()
     ServerAddr.sin_family = AF_INET;	// 使用ip4
     ServerAddr.sin_port = htons(Port);	// 字节转型，前文有介绍
     // 因为没有其它电脑，也没有安装虚拟机，所有只有使用本机的ip地址
-    ServerAddr.sin_addr.S_un.S_addr = inet_addr("192.168.124.196");	// 将本机ip转为32位无符号整形
+    ServerAddr.sin_addr.S_un.S_addr = inet_addr("127.0.0.1");	// 将本机ip转为32位无符号整形
 
     // 提示信息
     printf("We are trying to connect to %s:%d...\n", inet_ntoa(ServerAddr.sin_addr), htons(ServerAddr.sin_port));
