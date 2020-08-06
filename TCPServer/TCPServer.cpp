@@ -30,6 +30,12 @@ DWORD CALLBACK ThreadProc(LPVOID lp)	// lp是接收到的最新的套接字
 			WSACleanup();			// 清空启动信息
 			return 0;
 		}
+				
+		if(Ret < 0)
+		{
+			printf("exit a thread. errorCode = %d \n", WSAGetLastError());
+			break;
+		}
 
 		printf("We successfully received %d bytes.\n", Ret);	// 打印接收了多少数据
 		if(Ret>= 0 && Ret < 1024)
